@@ -16,19 +16,23 @@ declare(strict_types=1);
  * @see https://projecteuler.net/problem=2
  */
 
+require_once 'functional/reduce.php';
+require_once 'functional/sum.php';
 
-$n1  = 1;
-$n2  = 1;
-$sum = 0;
+function fibonacciGenerator()
+{
+    $n1 = 1;
+    $n2 = 1;
 
-while ($n2 < 4000000) {
-    $tmp = $n1 + $n2;
-    $n1  = $n2;
-    $n2  = $tmp;
+    while ($n2 < 4000000) {
+        $tmp = $n1 + $n2;
+        $n1  = $n2;
+        $n2  = $tmp;
 
-    if ($n2 % 2 === 0) {
-        $sum += $n2;
+        if ($n2 % 2 === 0) {
+            yield $n2;
+        }
     }
 }
 
-echo $sum;
+echo iterable_reduce(fibonacciGenerator(), 'sum', 0);
