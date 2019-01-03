@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-final class Test extends TestCase
+final class ProblemTest extends TestCase
 {
 
     public function test1(): void
@@ -14,6 +14,11 @@ final class Test extends TestCase
     public function test2(): void
     {
         self::assertEquals(4613732, $this->getResponse(2));
+    }
+
+    public function test3(): void
+    {
+        self::assertEquals(6857, $this->getResponse(3));
     }
 
     /**
