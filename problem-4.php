@@ -15,13 +15,7 @@ declare(strict_types=1);
 
 require_once 'functions/palindrome.php';
 
-function threeDigitGenerator(): Generator
-{
-    for ($i = 999; $i > 99; $i--) {
-        yield $i;
-    }
-}
-
+// Fill an array with numbers from 100 to 999.
 $numbers = array_reverse(array_keys(array_fill(100, 900, 0)));
 
 $max = 0;
