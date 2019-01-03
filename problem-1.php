@@ -11,14 +11,20 @@ declare(strict_types=1);
  * Find the sum of all the multiples of 3 or 5 below 1000.
  *
  * @see https://projecteuler.net/problem=1
+ *
+ * @param int $limit
+ *
+ * @return int
  */
+function problem1(int $limit = 1000): int
+{
+    $sum = 0;
 
-$sum = 0;
-
-for ($n = 1; $n < 1000; $n++) {
-    if ($n % 5 === 0 || $n % 3 === 0) {
-        $sum += $n;
+    for ($n = 1; $n < $limit; $n++) {
+        if ($n % 5 === 0 || $n % 3 === 0) {
+            $sum += $n;
+        }
     }
-}
 
-echo $sum;
+    return $sum;
+}

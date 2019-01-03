@@ -14,20 +14,27 @@ declare(strict_types=1);
  * find the sum of the even-valued terms.
  *
  * @see https://projecteuler.net/problem=2
+ *
+ * @param int $limit
+ *
+ * @return int
  */
+function problem2(int $limit = 4000000): int
+{
+    $n1  = 1;
+    $n2  = 1;
+    $sum = 0;
 
-$n1  = 1;
-$n2  = 1;
-$sum = 0;
+    while ($n2 < $limit) {
+        $tmp = $n1 + $n2;
+        $n1  = $n2;
+        $n2  = $tmp;
 
-while ($n2 < 4000000) {
-    $tmp = $n1 + $n2;
-    $n1  = $n2;
-    $n2  = $tmp;
-
-    if ($n2 % 2 === 0) {
-        $sum += $n2;
+        if ($n2 % 2 === 0) {
+            $sum += $n2;
+        }
     }
+
+    return $sum;
 }
 
-echo $sum;
