@@ -21,6 +21,11 @@ final class ProblemTest extends TestCase
         self::assertEquals(6857, $this->getResponse(3));
     }
 
+    public function test4(): void
+    {
+        self::assertEquals(906609, $this->getResponse(4));
+    }
+
     /**
      * @param int $problemId
      *
