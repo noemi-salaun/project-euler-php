@@ -28,7 +28,7 @@ function problem3(int $number = 600851475143): int
     while (true) {
         $limit = sqrt($quotient);
 
-        foreach (primeGenerator($limit) as $prime) {
+        foreach (primeGenerator(null, $limit) as $prime) {
 
             // End when the quotient is a prime.
             if ($quotient === $prime) {

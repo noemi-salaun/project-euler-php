@@ -68,4 +68,15 @@ final class ProblemTest extends TestCase
         // Real problem.
         self::assertEquals(25164150, problem6());
     }
+
+    public function test7(): void
+    {
+        require_once 'problem-7.php';
+
+        // Exemple from the description.
+        self::assertEquals(13, problem7(6));
+
+        // Real problem.
+        self::assertEquals(104743, problem7());
+    }
 }

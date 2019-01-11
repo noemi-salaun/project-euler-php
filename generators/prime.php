@@ -2,15 +2,21 @@
 declare(strict_types=1);
 
 /**
- * Generates prime numbers less than $max.
+ * Generates prime numbers.
+ * Limits can be defined, either with a max value or a max iteration.
  *
- * @param float $max
+ * @param int   $maxIteration Number of prime to generate or PHP_INT_MAX if null.
+ * @param float $maxValue     Maximum value to generate or PHP_INT_MAX if null.
  *
  * @return Generator
  */
-function primeGenerator(float $max): Generator
+function primeGenerator(int $maxIteration = null, float $maxValue = null): Generator
 {
-    for ($n = 2; $n <= $max; $n++) {
+    $maxIteration = $maxIteration ?? PHP_INT_MAX;
+    $maxValue     = $maxValue ?? (float)PHP_INT_MAX;
+    $count        = 0;
+
+    for ($n = 2; $n <= $maxValue; $n++) {
 
         $halfN = $n / 2;
         for ($d = 2; $d <= $halfN; $d++) {
@@ -24,6 +30,11 @@ function primeGenerator(float $max): Generator
         }
 
         // This $n is a prime.
+        $count++;
         yield $n;
+
+        if ($count >= $maxIteration) {
+            return;
+        }
     }
 }
